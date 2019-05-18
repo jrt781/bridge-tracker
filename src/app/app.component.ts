@@ -8,5 +8,10 @@ import { Item } from './model/item';
 })
 export class AppComponent {
   title = 'BridgeTracker';
-  item = new Item("woohoo");
+  items = [
+    new Item("Jake", 'hookshot'),
+    new Item("Abby", 'hookshot'),
+    new Item("Ronan", 'hookshot'),
+    new Item("Mackenzie", 'hookshot'),
+  ];
 }
