@@ -9,7 +9,7 @@
 <ul>
   <li *ngFor="let item of items">
     <p>{{ item['name'] }}</p>
-    <img [src]="'assets/img/' + item['image'] + '.png'">
+    <img [src]="'assets/img/' + item['image'] + '.png'" [title]="item['name']">
   </li>
 </ul>
 
