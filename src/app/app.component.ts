@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'BridgeTracker';
   items = [
     new Item("Jake", 'hookshot'),
-    new Item("Abby", 'hookshot'),
+    new Item("Abby", 'boomerang'),
     new Item("Ronan", 'hookshot'),
     new Item("Mackenzie", 'hookshot'),
   ];
