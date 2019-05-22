@@ -19,20 +19,33 @@ export class AppComponent {
   ]
 
   visitCheck(check: Check) {
+    // TODO determine if checks can be visited even when not available
     check.visited = !check.visited;
   }
 
   incrementItem(item: Item) {
     item.has = !item.has;
-    // this.checkAvailability(item);
+    this.notifyNewItem(item);
   }
 
-  // checkAvailability(item: Item) {
-  //   this.checks.forEach(check => {
-  //     var dependsOnItem = false;
-  //     check.dependencies.forEach(item => {
+  notifyNewItem(item: Item) {
+    this.checks.forEach(check => {
+      if (!check.visited && check.dependencies.includes(item)) {
+        console.log("the check " + check.name + " depends on " + item.name);
+        this.recalculateAvailability(check);
+      }
+    });
+  }
 
-  //     })
-  //   });
-  // }
+  recalculateAvailability(check: Check) {
+    var isNowAvailable = true;
+    check.dependencies.forEach(itemDependency => {
+      this.items.forEach(itemInBag => {
+        if (itemDependency.name == itemInBag.name && itemInBag.has == false) {
+          isNowAvailable = false;
+        }
+      })
+    });
+    check.available = isNowAvailable;
+  }
 }

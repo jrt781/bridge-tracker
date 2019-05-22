@@ -12,6 +12,7 @@
         .item {
             margin: 10px;
             opacity: 0.5;
+            cursor: pointer;
         }
 
         .has {
@@ -25,11 +26,17 @@
         padding: 20px;
 
         .check {
+            background-color: red;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .available {
             background-color: yellow;
         }
 
         .visited {
-            color: red;
+            background-color: gray;
         }
     }
 }
